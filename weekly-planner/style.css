@@ -1,0 +1,62 @@
+:root{
+  --bg:#eef4fa; --sky:#d6e8f6; --sky-d:#4d84b5; --sky-x:#2c4f73;
+  --pur:#ebe6f5; --pur-d:#7a6aa8; --line:#c3d3e4; --txt:#22304a; --mut:#6b7c96; --card:#fbfcfe;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#18202e; --sky:#243449; --sky-d:#8fbfe8; --sky-x:#c9e0f4; --pur:#2b2740; --pur-d:#b6a9e0;
+  --line:#34445c; --txt:#e3ebf5; --mut:#93a3bb; --card:#1e2839;}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html:has(dialog[open]),html:has(dialog[open]) body{overflow:hidden}
+dialog{max-height:90vh;max-height:90dvh;overflow-y:auto;overscroll-behavior:contain}
+textarea{overscroll-behavior:contain}
+.t>div{flex:1;min-width:0}
+.t .x{margin-left:auto;padding:0 8px;line-height:1.4;border:0;background:transparent;color:var(--mut);font-size:17px}
+.t .x:hover{color:#a4455a;background:var(--pur)}
+.choices{display:flex;flex-direction:column;gap:8px}
+#delName{margin:0 0 14px;font-weight:600;word-break:break-word}
+body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.45 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+button{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 12px;cursor:pointer}
+button:hover{background:var(--sky)}
+:focus-visible{outline:2px solid var(--sky-d);outline-offset:1px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:14px 20px;background:var(--sky);border-bottom:2px solid var(--sky-d)}
+h1{margin:0;font-size:20px;font-weight:600;color:var(--sky-x);letter-spacing:.02em}
+.nav{display:flex;gap:4px}
+.range{font-weight:600;color:var(--sky-x);flex:1}
+.tools{display:flex;gap:4px}
+.week{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:20px}
+.day{background:var(--card);min-height:220px;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.day.we{background:color-mix(in srgb,var(--pur) 45%,var(--card))}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--pur)}
+.dh b{font-weight:600;color:var(--pur-d)}
+.dh span{color:var(--mut);font-size:13px}
+.day.now .dh{background:var(--sky-d)}
+.day.now .dh b,.day.now .dh span{color:#fff}
+.list{flex:1;padding:12px;display:flex;flex-direction:column;gap:10px}
+.t{display:flex;gap:6px;align-items:flex-start;padding:6px;border:1px solid var(--line);border-left:3px solid var(--sky-d);background:var(--card);border-radius:12px;cursor:pointer}
+.t.rep{border-left-color:var(--pur-d)}
+.t:hover{background:var(--sky)}
+.t input{margin-top:3px;accent-color:var(--sky-d)}
+.t .m{font-size:12px;color:var(--mut)}
+.t.done .n{text-decoration:line-through;color:var(--mut)}
+.t .n{word-break:break-word}
+.add{margin:0 12px 12px;border-style:dashed;color:var(--mut);background:transparent}
+dialog{border:1px solid var(--sky-d);border-radius:18px;background:var(--card);color:var(--txt);width:min(440px,94vw);padding:20px}
+dialog::backdrop{background:rgba(34,48,74,.45)}
+h2{margin:0 0 12px;font-size:17px;color:var(--sky-x)}
+label,fieldset{display:block;margin-bottom:10px;font-size:13px;color:var(--mut);border:0;padding:0}
+label input,label select,label textarea{display:block;width:100%;margin-top:3px;padding:7px;background:var(--bg);border:1px solid var(--line);border-radius:12px;font-size:15px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.days{display:flex;gap:4px;flex-wrap:wrap}
+.days label{margin:0;padding:5px 9px;border:1px solid var(--line);border-radius:12px;cursor:pointer;color:var(--txt)}
+.days label:has(input:checked){background:var(--pur);border-color:var(--pur-d)}
+.days input{display:none}
+.actions{display:flex;gap:6px;margin-top:6px}
+.sp{flex:1}
+.primary{background:var(--sky-d);border-color:var(--sky-d);color:#fff}
+.primary:hover{background:var(--sky-x)}
+.danger{color:#a4455a;border-color:#d7b0ba}
+@media(max-width:600px){.week{gap:10px;margin:12px}.dh{flex-direction:column;align-items:flex-start;gap:0}.list{padding:8px;gap:8px}.add{margin:0 8px 8px}.t{padding:5px}}
+@media(prefers-reduced-motion:no-preference){dialog[open]{animation:o .15s ease-out}@keyframes o{from{opacity:0;transform:translateY(6px)}}}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}

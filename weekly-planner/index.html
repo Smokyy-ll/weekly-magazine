@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Еженедельник</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <h1>Еженедельник</h1>
+  <div class="nav">
+    <button id="prev" aria-label="Предыдущая неделя">‹</button>
+    <button id="today">Сегодня</button>
+    <button id="next" aria-label="Следующая неделя">›</button>
+  </div>
+  <div id="range" class="range"></div>
+  
+</header>
+<main id="week" class="week"></main>
+
+<dialog id="dlg">
+  <form id="form" method="dialog">
+    <h2 id="dlgTitle">Новая задача</h2>
+    <label>Название<input id="title" required maxlength="120"></label>
+    <label>Дата начала<input id="date" type="date" required></label>
+    <div class="row">
+      <label>Начало<input id="time" type="time"></label>
+      <label>Окончание<input id="timeEnd" type="time"></label>
+    </div>
+    <label>Повторение
+      <select id="repeat">
+        <option value="none">Не повторять</option>
+        <option value="daily">Каждый день</option>
+        <option value="weekdays">Каждый будний день</option>
+        <option value="weekly">В выбранные дни недели</option>
+        <option value="monthly">Каждый месяц (это число)</option>
+        <option value="yearly">Каждый год (эта дата)</option>
+      </select>
+    </label>
+    <fieldset id="daysBox" hidden>
+      <legend>Дни недели</legend>
+      <div class="days" id="days"></div>
+    </fieldset>
+    <label id="untilBox" hidden>Повторять до (необязательно)<input id="until" type="date"></label>
+    <label>Заметка<textarea id="note" rows="2" maxlength="500"></textarea></label>
+    <div class="actions">
+      <button type="button" id="del" class="danger" hidden>Удалить</button>
+      <span class="sp"></span>
+      <button type="button" id="cancel">Отмена</button>
+      <button type="submit" class="primary">Сохранить</button>
+    </div>
+  </form>
+</dialog>
+<dialog id="delDlg">
+  <h2>Удалить повторяющуюся задачу</h2>
+  <p id="delName"></p>
+  <div class="choices">
+    <button type="button" data-m="day">Только в этот день</button>
+    <button type="button" data-m="week">На этой неделе</button>
+    <button type="button" data-m="all" class="danger">Весь цикл</button>
+    <button type="button" data-m="x">Отмена</button>
+  </div>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>
